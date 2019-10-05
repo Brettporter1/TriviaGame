@@ -18,7 +18,22 @@ var questions = [
     {
         question: 'At what concert did Jimi infamously burn his guitar?',
         answers: ['Filmore East', 'Monterey Pop Festival', 'Woodstock', 'Isle of Wight Festival'],
-        correctAnswer: ''
+        correctAnswer: 'Monterey Pop Festival'
+    },
+    {
+        question: 'What was Jimi\'s full name when he was born?',
+        answers: ['James Marshall Hendrix', 'Jimmy Marvin Hendrix', 'Johnny Allen Hendrix', 'James Allen Hendrix'],
+        correctAnswer: 'Johnny Allen Hendrix'
+    },
+    {
+        question: 'How many studio albums did Jimi release',
+        answers: ['3','2', '4', '7'],
+        correctAnswer: '3'
+    },
+    {
+        question: 'Which of these is not one of Jimi\'s bands?',
+        answers: ['Jimmy James and the Blue Flames', 'The Velvatones', 'Band of Gypsys', 'the Jimi Hendrix Experiment'],
+        correctAnswer: 'the Jimi Hendrix Experiment'
     },
     {
         question: '',
@@ -28,7 +43,7 @@ var questions = [
     {
         question: '',
         answers: [],
-        correctAnswer: ''
+        correctAnswer:''
     },
     {
         question: '',
@@ -36,7 +51,7 @@ var questions = [
         correctAnswer: ''
     }
 ];
-var time = 30;
+var time = 10;
 var loadedQuestion = '';
 var selectedAnswer = '';
 var correctAnswers = 0;
@@ -45,7 +60,8 @@ var timeCount = function(){
     time--;
     $('#timer').html(time);
     if(time <= 0){
-        alert('Your Time is Up');
+        clearInterval(timer);
+        console.log('Your Time is Up');
         gameOver();
     }
 }
@@ -63,7 +79,23 @@ var timeCount = function(){
             }
         }
     });
-
+    function gameOver(){
+        for (var i = 0; i < questions.length; i++){
+            $.each($(`input[name=question${i}]:checked`),function(){
+                if($(this).val()=== questions[i].correctAnswer){
+                    correctAnswers++;
+                    console.log(`right:${correctAnswers}`);     
+                }
+                else{
+                    wrongAnswers++;
+                    console.log(`wrong:${wrongAnswers}`);
+                }
+                console.log(questions.length - (correctAnswers + wrongAnswers));
+            })
+            
+        }
+        // write the results back to the DOM
+    }
 
 
 
