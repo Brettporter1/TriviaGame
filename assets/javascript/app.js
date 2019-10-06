@@ -32,8 +32,8 @@ var questions = [
     },
     {
         question: 'Which of these is not one of Jimi\'s bands?',
-        answers: ['Jimmy James and the Blue Flames', 'The Velvatones', 'Band of Gypsys', 'the Jimi Hendrix Experiment'],
-        correctAnswer: 'the Jimi Hendrix Experiment'
+        answers: ['Jimmy James and the Blue Flames', 'The Velvatones', 'Band of Gypsys', 'The Jimi Hendrix Experiment'],
+        correctAnswer: 'The Jimi Hendrix Experiment'
     },
     {
         question: '',
