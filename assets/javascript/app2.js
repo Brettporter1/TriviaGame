@@ -61,11 +61,9 @@ var questions = [
         image:''
     }
 ];
-// $(document).ready(function() {
-//     var audioElement = document.createElement("audio");
-//     audioElement.setAttribute("src", "./assets/audio/Jimi Hendrix - Hey Joe.mp3");
-//     audioElement.play();
-// });
+$(document).ready(function() {
+    $('#purpleHaze').get(0).play();
+});
 
 $('#start-game').on('click', function () {
     $('#start-game').remove();
