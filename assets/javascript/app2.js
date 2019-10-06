@@ -42,30 +42,32 @@ var questions = [
         correctAnswer: 'Army'
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer:''
+        question: 'What was the model year of the Fender Jimi played at Woodstock?',
+        answers: ['1967','1968','1969', '1970'],
+        correctAnswer:'1968'
     },
     {
-        question: '',
-        answers: [],
-        correctAnswer: ''
+        question: 'In what city did Jimi pass away?',
+        answers: ['Paris','Seattle','New York','London'],
+        correctAnswer: 'London'
     }
 ];
 $('#start-game').on('click', function () {
     $('#start-game').remove();
-    var questTimer = $('<h1>');
-    questTimer.attr('id', 'timer');
+    $('#timer').html(game.time);
     game.renderQuestion();
 });
 $(document).on('click','.trivia-button', function(event){
     if(game.loadedQuestion !== questions.length - 1){
         game.selectedAnswer(event);
     }
-    else{game.results}
+    else{game.results()}
 });
 $(document).on('click','#nextQuest',function(){
     game.nextQuestion();
+})
+$(document).on('click','#result',function(){
+    game.results();
 })
 var game ={
     questions:questions,
@@ -125,7 +127,7 @@ rightAnswer: function(){
     console.log('correct');
     game.correctAnswers++;
     if(game.loadedQuestion === questions.length - 1){
-        setTimeout(game.results, 4000);
+        setTimeout(game.results, 2000);
     }
     else{
        $('#gameScreen').append('<button id="nextQuest">Next Question</button>');
@@ -135,13 +137,15 @@ wrongAnswer: function(){
     console.log('wrong');
     game.wrongAnswers++;
     if(game.loadedQuestion === questions.length - 1){
-        setTimeout(game.results, 4000);
+        setTimeout(game.results, 2000);
     }
     else{
        $('#gameScreen').append('<button id="nextQuest">Next Question</button>');
     };
 },
 results: function(){
-
+    clearInterval(timer);
+    $('#timer').empty();
+    $('#gameScreen').html(`<h1 id="winCount">Correct Answers: ${game.correctAnswers}</h1>`).append(`<h1 id="winCount">Wrong Answers: ${game.wrongAnswers}</h1>`)
 }
 }
