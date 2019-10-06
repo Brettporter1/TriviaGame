@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Molle:400i|Muli:300,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
+
 <body>
-    <header id="gameHeader">
-        <h1>Jimi Hendrix Trivia</h1>
-        <h2 id="timer"></h2>
-    </header>
-    <section id="gameScreen">
-       <button id="start-game">Start Game</button>
-    </section>
+    <div class="gameContainer">
+        <header id="gameHeader">
+            <h1 id="gameTitle">Jimi Hendrix Trivia</h1>
+            <h4 id="gameDescript">Jimi was young entertainer that packed a life's worth into a very short career. Let's see how much you know about his life.</h4>
+            <h2 id="timer"></h2>
+        </header>
+        <section id="gameImage"></section>
+        <section id="gameScreen">
+            <button id="start-game">Start Game</button>
+        </section>
+    </div>
     <script src="assets/javascript/app2.js"></script>
 </body>
+
 </html>
